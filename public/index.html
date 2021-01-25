@@ -21,7 +21,7 @@
         <ul id="messages"></ul>
     </div>
     <form action="">
-      <input id="m" placeholder="Digite sua mensagem..." autocomplete="off" required /><button>Enviar</button>
+      <input id="m" placeholder="Digite sua mensagem..." autocomplete="off" required /><button>>></button>
     </form>
 
     <script src="/socket.io/socket.io.js"></script>
@@ -44,11 +44,11 @@
     		});
     		socket.on('pauseg', function(usr){
                 console.log("pause?")
-                $('#video')[0].paused ? false : $('#video')[0].pause();
+                if (!($('#video')[0].paused)) $('#video')[0].pause();
             });
     		socket.on('playg', function(usr){
                 console.log("play?")
-                $('#video')[0].paused ? $('#video')[0].play() : false;
+                if ($('#video')[0].paused) $('#video')[0].play();
             });
             
             function pausou() {
