@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel = "stylesheet" href="style.css">
+    <title>Assista com Davi</title>
+	<script>
+		var name = prompt("Digite seu nome.");
+	</script>
+</head>
+<body>
+    
+    <div id="intro">
+        <div id="wrapper">
+            <video id="video" onpause="pausou()" onplay="playr()" muted controls><source src="//www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4" type="video/mp4"></video>
+        </div>
+        <h1>Chat da sala - Blindspot S01E01</h1>
+    </div>
+    <div>
+        <ul id="messages"></ul>
+    </div>
+    <form action="">
+      <input id="m" placeholder="Digite sua mensagem..." autocomplete="off" required /><button>Enviar</button>
+    </form>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+		
+            var socket = io();
+
+    		socket.emit('joining msg', name);
+
+    		$('form').submit(function(e) {
+    			e.preventDefault();            // nao recarregar pagina
+      			socket.emit('chat message', (name + ':  ' + $('#m').val()));
+                $('#messages').prepend($('<li id="list">').text('Você:  ' + $('#m').val()));
+      			$('#m').val('');
+      			return false;
+    		});
+    		socket.on('chat message', function(msg){
+      			$('#messages').prepend($('<li>').text(msg));
+    		});
+    		socket.on('pauseg', function(usr){
+                console.log("pause?")
+                $('#video')[0].pause();
+            });
+    		socket.on('playg', function(usr){
+                console.log("play?")
+                $('#video')[0].play();
+            });
+            
+            
+            function pausou() {
+                socket.emit('pause', name);
+            }
+            function playr() {
+                socket.emit('play', name);
+            }
+  		
+    </script>
+    <script>
+    </script>
+</body>
+</html>

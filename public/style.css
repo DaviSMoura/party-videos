@@ -1,0 +1,77 @@
+* { 
+	margin: 0; 
+	padding: 0; 
+	box-sizing: border-box; 
+}
+
+#intro{
+    background-color: #008000;
+    color: #FFFFFF;
+    height: 5%;	
+} 
+
+
+#video {
+    /* position: absolute; */ 
+    right: 0; 
+    bottom: 0;
+    min-width: 100%; 
+    width: auto;
+    z-index: -100;
+    background-size: cover;
+    overflow: hidden;
+    width: 100%;
+    height: 10%;
+}
+
+
+body { 
+    font: 20px;
+}
+
+
+
+form { 
+    background: #000000; 
+    padding: 3px; 
+    position: fixed; 
+    bottom: 5px; 
+    width: 100%; 
+}
+
+form input { 
+    background-color: #e6ffe6;
+    border: 0; 
+    padding: 10px; 
+    width: 90%; 
+    margin-right: 0.5%; 
+}
+
+form button { 
+    width: 9%; 
+    background: #00e600;
+    border: none; 
+    padding: 5px; 
+    font-size: 20px; 
+}
+
+#messages { 
+
+    margin: 0; 
+    padding-bottom: 500px;
+    bottom: 500px;
+
+}
+
+#messages li { 
+    padding: 5px 10px; 
+}
+
+#messages li:nth-child(odd) { 
+    background: #b3ffb3; 
+}
+
+
+#list{
+    text-align: right;
+}

@@ -1,0 +1,27 @@
+{
+  "name": "party-videos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaviSMoura/party-videos.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DaviSMoura/party-videos/issues"
+  },
+  "homepage": "https://github.com/DaviSMoura/party-videos#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
+    "readline": "^1.3.0",
+    "readline-sync": "^1.4.10",
+    "socket.io": "^3.1.0"
+  }
+}
