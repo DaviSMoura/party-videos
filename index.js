@@ -38,6 +38,11 @@ socket.on('play', (usr) => {
     io.emit('chat message', `${name} deu play!`);
     socket.broadcast.emit('playg', usr);
 });
+socket.on('syncar', (obj) => {
+    io.emit('chat message', `${name} Esta sincronizando!`);
+    socket.broadcast.emit('sett', obj.time);
+    socket.broadcast.emit('playg', obj.name);
+});
 
 });
 

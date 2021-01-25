@@ -40,15 +40,25 @@
       			return false;
     		});
     		socket.on('chat message', function(msg){
-      			$('#messages').prepend($('<li>').text(msg));
+                  $('#messages').prepend($('<li>').text(msg));
+                    if (msg == "!sync") {
+                        syncar();
+                    }
     		});
     		socket.on('pauseg', function(usr){
                 console.log("pause?")
-                if (!($('#video')[0].paused)) $('#video')[0].pause();
+                if (usr != name)
+                if (!($('#video')[0].paused))
+                    $('#video')[0].pause();
             });
     		socket.on('playg', function(usr){
                 console.log("play?")
-                if ($('#video')[0].paused) $('#video')[0].play();
+                if (usr != name)
+                if ($('#video')[0].paused)
+                    $('#video')[0].play();
+            });
+    		socket.on('sett', function(usr){
+                $('#video')[0].currentTime = usr;
             });
             
             function pausou() {
@@ -56,6 +66,10 @@
             }
             function playr() {
                 socket.emit('play', name);
+            }
+            function syncar() {
+                var obj = {name: name, time: $['#video'].currentTime };
+                socket.emit('sync', name);
             }
   		
     </script>
