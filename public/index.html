@@ -13,7 +13,7 @@
     
     <div id="intro">
         <div id="wrapper">
-            <video id="video" onpause="pausou()" onplay="playr()" muted controls><source src="//www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4" type="video/mp4"></video>
+            <video id="video" onpause="pausou()" onplay="playr()" autoplay controls><source src="//www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4" type="video/mp4"></video>
         </div>
         <h1>Chat da sala - Blindspot S01E01</h1>
     </div>
@@ -50,7 +50,6 @@
                 console.log("play?")
                 $('#video')[0].play();
             });
-            
             
             function pausou() {
                 socket.emit('pause', name);
