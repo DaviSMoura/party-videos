@@ -44,11 +44,11 @@
     		});
     		socket.on('pauseg', function(usr){
                 console.log("pause?")
-                $('#video')[0].pause();
+                $('#video')[0].paused ? false : $('#video')[0].pause();
             });
     		socket.on('playg', function(usr){
                 console.log("play?")
-                $('#video')[0].play();
+                $('#video')[0].paused ? $('#video')[0].play() : false;
             });
             
             function pausou() {
